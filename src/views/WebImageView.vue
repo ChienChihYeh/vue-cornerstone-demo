@@ -1,9 +1,10 @@
 <script setup lang="ts">
 import { RouterLink } from 'vue-router'
+import WebViewer from '@/components/WebViewer.vue'
 </script>
 <template>
   <h2>Web Image Viewer</h2>
-  <div></div>
+  <WebViewer />
   <div>
     <RouterLink to="/">Back</RouterLink>
   </div>

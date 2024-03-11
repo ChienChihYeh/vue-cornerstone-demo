@@ -4,7 +4,6 @@ import { initializeCornerstone } from './utils/initializeCornerstone'
 
 initializeCornerstone()
 </script>
-
 <template>
   <RouterView />
 </template>

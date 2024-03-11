@@ -3,7 +3,7 @@ import { RouterLink } from 'vue-router'
 </script>
 <template>
   <main>
-    <h1>Welcome to the Vue-Cornerstone3D demo!</h1>
+    <h1>Vue-Cornerstone3D Intergration Demo</h1>
     <div>
       <RouterLink to="/dicom-image">Dicom</RouterLink> |
       <RouterLink to="/web-image">Web</RouterLink>

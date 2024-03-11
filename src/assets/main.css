@@ -29,3 +29,12 @@ a {
     background-color: hsla(160, 100%, 37%, 0.2);
   }
 }
+
+.viewer {
+  width: 512px;
+  height: 512px;
+}
+
+.viewer canvas {
+  left: 0;
+}

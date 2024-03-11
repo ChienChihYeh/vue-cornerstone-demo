@@ -1,18 +1,20 @@
 <script setup lang="ts">
 import { RouterLink } from 'vue-router'
-import { dicomImageIds } from '@/utils/dicomImagePath'
-
-console.log(dicomImageIds)
+import DicomViewer from '@/components/DicomViewer.vue'
+import ControlLayout from '@/components/ControlLayout.vue'
 </script>
 <template>
   <h2>Dicom Image Viewer</h2>
-  <div></div>
+  <ControlLayout />
+  <DicomViewer />
   <div>
     <RouterLink to="/">Back</RouterLink>
   </div>
 </template>
 <style scoped>
-div {
+h2,
+div,
+p {
   text-align: center;
 }
 </style>
