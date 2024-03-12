@@ -1,7 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
-import DicomImageView from '../views/DicomImageView.vue'
-import WebImageView from '../views/WebImageView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -14,14 +12,12 @@ const router = createRouter({
     {
       path: '/dicom-image',
       name: 'dicom',
-      // component: () => import('../views/DicomImageView.vue')
-      component: DicomImageView
+      component: () => import('../views/DicomImageView.vue')
     },
     {
       path: '/web-image',
       name: 'web',
-      // component: () => import('../views/WebImageView.vue')
-      component: WebImageView
+      component: () => import('../views/WebImageView.vue')
     }
   ]
 })
