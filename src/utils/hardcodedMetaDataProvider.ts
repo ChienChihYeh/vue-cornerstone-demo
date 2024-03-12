@@ -1,7 +1,7 @@
 export function hardcodedMetaDataProvider(type: string, imageId: string, imageIds: string[]) {
   const colonIndex = imageId.indexOf(':')
   const scheme = imageId.substring(0, colonIndex)
-  if (scheme !== 'http') {
+  if (scheme !== 'web') {
     return
   }
 

@@ -113,6 +113,7 @@ function arrayBufferToImage(arrayBuffer: Iterable<number>) {
     const image = new Image()
     const arrayBufferView = new Uint8Array(arrayBuffer)
     const blob = new Blob([arrayBufferView])
+
     const urlCreator = window.URL || window.webkitURL
     const imageUrl = urlCreator.createObjectURL(blob)
 
@@ -192,8 +193,7 @@ function _loadImageIntoBuffer(
   options?: Record<string, any>
 ): { promise: Promise<Record<string, any>> } {
   const promise = new Promise<Record<string, any>>((resolve, reject) => {
-    const protocol = window.location.protocol
-    const uri = imageId.replace(protocol, '')
+    const uri = imageId.replace('web:', '')
 
     // get the pixel data from the server
     loadImage(uri, imageId)
@@ -226,5 +226,5 @@ function _loadImageIntoBuffer(
 }
 
 export function registerWebImageLoader(imageLoader: typeof cornerstone.imageLoader): void {
-  imageLoader.registerImageLoader('http', _loadImageIntoBuffer)
+  imageLoader.registerImageLoader('web', _loadImageIntoBuffer)
 }
