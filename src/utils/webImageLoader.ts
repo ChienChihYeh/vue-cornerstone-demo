@@ -227,5 +227,4 @@ function _loadImageIntoBuffer(
 
 export function registerWebImageLoader(imageLoader: typeof cornerstone.imageLoader): void {
   imageLoader.registerImageLoader('http', _loadImageIntoBuffer)
-  imageLoader.registerImageLoader('https', _loadImageIntoBuffer)
 }
