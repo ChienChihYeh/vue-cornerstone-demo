@@ -15,6 +15,7 @@ function createImage(image: HTMLImageElement, imageId: string) {
     length: number | undefined
   }) {
     const imageData = getImageData()
+
     if (!imageData) return
 
     let targetArray
@@ -92,6 +93,7 @@ function createImage(image: HTMLImageElement, imageId: string) {
     getPixelData,
     getCanvas,
     getImage: () => image,
+    getImageData,
     rows,
     columns,
     height: rows,
@@ -129,6 +131,8 @@ function arrayBufferToImage(arrayBuffer: Iterable<number>) {
 
 function loadImage(uri: string, imageId: string) {
   const xhr = new XMLHttpRequest()
+
+  console.log(uri, imageId)
 
   xhr.open('GET', uri, true)
   xhr.responseType = 'arraybuffer'
@@ -188,8 +192,11 @@ function _loadImageIntoBuffer(
   options?: Record<string, any>
 ): { promise: Promise<Record<string, any>> } {
   const promise = new Promise<Record<string, any>>((resolve, reject) => {
+    const protocol = window.location.protocol
+    const uri = imageId.replace(protocol, '')
+
     // get the pixel data from the server
-    loadImage(imageId, imageId)
+    loadImage(uri, imageId)
       .promise.then(
         (image) => {
           if (
@@ -201,9 +208,8 @@ function _loadImageIntoBuffer(
             resolve(image as PromiseLike<Record<string, any>>)
             return
           }
-          //   image.getPixelData(options.targetBuffer)
-
-          //   resolve(true)
+          // image.getPixelData(options.targetBuffer)
+          // resolve(true)
         },
         (error) => {
           reject(error)
