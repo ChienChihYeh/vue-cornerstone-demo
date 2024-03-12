@@ -30,6 +30,8 @@ useEventListener(window, 'mouseup', () => {
   checkZoom(viewport.value)
 })
 
+console.log(webImageIds)
+
 onMounted(() => {
   registerWebImageLoader(imageLoader)
   enableElement({ renderingEngineId, element: el.value, viewportId: webImageViewportId, viewport })
