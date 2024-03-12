@@ -201,9 +201,9 @@ function _loadImageIntoBuffer(
             resolve(image as PromiseLike<Record<string, any>>)
             return
           }
-          // image.getPixelData(options.targetBuffer)
+          //   image.getPixelData(options.targetBuffer)
 
-          // resolve(true)
+          //   resolve(true)
         },
         (error) => {
           reject(error)
@@ -221,4 +221,5 @@ function _loadImageIntoBuffer(
 
 export function registerWebImageLoader(imageLoader: typeof cornerstone.imageLoader): void {
   imageLoader.registerImageLoader('http', _loadImageIntoBuffer)
+  imageLoader.registerImageLoader('https', _loadImageIntoBuffer)
 }

@@ -36,15 +36,15 @@ watchEffect(() => {
 
 onMounted(() => {
   enableElement({
-    renderingEngineId: renderingEngineId,
+    renderingEngineId,
     element: el.value,
     viewportId: dicomViewportId,
-    viewport: viewport
+    viewport
   })
   addViewportToToolGroup(dicomViewportId, toolGroupId)
 })
 onUnmounted(() => {
-  disableElement({ renderingEngineId: renderingEngineId, viewportId: dicomViewportId })
+  disableElement({ renderingEngineId, viewportId: dicomViewportId })
 })
 </script>
 <template>
