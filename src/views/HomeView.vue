@@ -9,11 +9,13 @@ import CornerstoneIcon from '@/components/icons/CornerstoneIcon.vue'
       <VueIcon class="vue-logo" />
       <CornerstoneIcon class="cornerstone-logo" />
     </div>
-    <h1>Vue-Cornerstone3D Intergration Demo</h1>
-    <p>{{ 'Note: This demo is currently optimized for desktop' }}</p>
+    <h1>Vue-Cornerstone3D Integration Demo</h1>
+    <p>The demo is kept simple for clarification. Please refer to the GitHub repository for additional information.</p>
+    <p>Note: This demo is currently optimized for desktop.</p>
     <div>
-      <RouterLink to="/dicom-image">Dicom</RouterLink> |
-      <RouterLink to="/web-image">Web</RouterLink>
+      <RouterLink to="/dicom-image">DICOM Image</RouterLink> |
+      <RouterLink to="/web-image">Web Image</RouterLink> |
+      <a href="https://github.com/ChienChihYeh/vue-cornerstone-demo" target="_blank">GitHub Repo</a>
     </div>
   </main>
 </template>
@@ -33,7 +35,7 @@ import CornerstoneIcon from '@/components/icons/CornerstoneIcon.vue'
   height: 150px;
 }
 
-div,
+div,h1,
 p {
   text-align: center;
 }
