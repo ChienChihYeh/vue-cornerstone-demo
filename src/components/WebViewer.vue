@@ -15,6 +15,7 @@ import {
 } from '@/utils/viewportHelpers'
 import { hardcodedMetaDataProvider } from '@/utils/hardcodedMetaDataProvider'
 import { useEventListener } from '@/hooks/event'
+import CustomButton from './CustomButton.vue'
 
 const { imageLoader, metaData } = cornerstone
 const el = ref()
@@ -44,10 +45,13 @@ onUnmounted(() => {
 </script>
 <template>
   <div ref="el" class="viewer" @contextmenu="$event.preventDefault()"></div>
-  <p><button @click="resetCamera(viewport)">Reset Transform</button></p>
+  <p><CustomButton @click="resetCamera(viewport)">Reset Transform</CustomButton></p>
 </template>
 <style scoped>
 p {
   text-align: center;
+}
+button {
+  margin: 4px 0;
 }
 </style>

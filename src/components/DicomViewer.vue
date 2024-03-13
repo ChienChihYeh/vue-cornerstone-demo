@@ -15,6 +15,7 @@ import { renderingEngineId, dicomViewportId, toolGroupId } from '@/config/corner
 import { addViewportToToolGroup } from '@/utils/toolGroup'
 import { useEventListener } from '@/hooks/event'
 import { useSlice } from '@/hooks/slice'
+import CustomButton from './CustomButton.vue'
 
 const el = ref()
 const viewport = ref<IStackViewport>()
@@ -54,7 +55,7 @@ onUnmounted(() => {
     @contextmenu="$event.preventDefault()"
     @wheel="(e) => handleViewerWheel(e, viewport, lastIndex, setSlice)"
   ></div>
-  <p><button @click="resetCamera(viewport)">Reset Transform</button></p>
+  <p><CustomButton @click="resetCamera(viewport)">Reset Transform</CustomButton></p>
   <p>Demo slice {{ slice + 1 }}: {{ dicomImageIds[slice] }}</p>
 </template>
 <style scoped>
@@ -64,5 +65,8 @@ div {
 div,
 p {
   text-align: center;
+}
+button {
+  margin-top: 4px;
 }
 </style>
