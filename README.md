@@ -20,13 +20,10 @@ This repository contains live demo showcasing the integration of Cornerstone3D i
 
 ### Resources
 
-[Cornerstone3D Documentation](https://www.cornerstonejs.org/)
-
-[Cornerstone3D Repository](https://github.com/cornerstonejs/cornerstone3D)
-
-[DICOM Library](https://www.dicomlibrary.com/)
-
-[vue-cornerstone-project](https://github.com/ChienChihYeh/vue-cornerstone-project) - a code example for adding JWT authentication to image loaders
+- [Cornerstone3D Documentation](https://www.cornerstonejs.org/)
+- [Cornerstone3D Repository](https://github.com/cornerstonejs/cornerstone3D)
+- [DICOM Library](https://www.dicomlibrary.com/)
+- [vue-cornerstone-project](https://github.com/ChienChihYeh/vue-cornerstone-project) - a code example for adding JWT authentication to image loaders
 
 ### Side Note
 
