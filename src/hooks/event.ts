@@ -1,4 +1,4 @@
-import { onMounted, onUnmounted, type Ref } from 'vue'
+import { onMounted, onBeforeUnmount, type Ref } from 'vue'
 
 export function useEventListener(
   target: Ref | Window,
@@ -10,6 +10,6 @@ export function useEventListener(
     return target.value
   }
 
-  onMounted(() => eventTarget(target).addEventListener(event, callback))
-  onUnmounted(() => eventTarget(target).removeEventListener(event, callback))
+  onMounted(() => eventTarget(target)?.addEventListener(event, callback))
+  onBeforeUnmount(() => eventTarget(target)?.removeEventListener(event, callback))
 }

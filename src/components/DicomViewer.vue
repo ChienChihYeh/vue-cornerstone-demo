@@ -1,5 +1,7 @@
 <script setup lang="ts">
 import { ref, onMounted, watchEffect, onUnmounted } from 'vue'
+import * as cornerstoneTools from '@cornerstonejs/tools'
+import * as cornerstone from '@cornerstonejs/core'
 import type { IStackViewport } from '@cornerstonejs/core/dist/types/types'
 import {
   enableElement,
@@ -17,13 +19,22 @@ import { useEventListener } from '@/hooks/event'
 import { useSlice } from '@/hooks/slice'
 import CustomButton from './CustomButton.vue'
 
+const { Enums } = cornerstone
+const { Enums: ToolEnums } = cornerstoneTools
+
+const count = ref(0)
 const el = ref()
 const viewport = ref<IStackViewport>()
 const lastIndex = dicomImageIds.length - 1
 
 const { slice, setSlice } = useSlice(0)
-useEventListener(window, 'mouseup', () => {
+
+useEventListener(el, ToolEnums.Events.MOUSE_UP, () => {
   checkZoom(viewport.value)
+})
+
+useEventListener(el, Enums.Events.IMAGE_RENDERED, () => {
+  count.value++
 })
 
 watchEffect(() => {
@@ -56,7 +67,8 @@ onUnmounted(() => {
     @wheel="(e) => handleViewerWheel(e, viewport, lastIndex, setSlice)"
   ></div>
   <p><CustomButton @click="resetCamera(viewport)">Reset Transform</CustomButton></p>
-  <p>Demo slice {{ slice + 1 }}: {{ dicomImageIds[slice] }}</p>
+  <p>Slice {{ slice + 1 }}: {{ dicomImageIds[slice] }}</p>
+  <p>Cornerstone rendered {{ count }} time(s)</p>
 </template>
 <style scoped>
 div {

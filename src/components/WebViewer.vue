@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { ref, onMounted, watchEffect, onUnmounted } from 'vue'
 import * as cornerstone from '@cornerstonejs/core'
+import * as cornerstoneTools from '@cornerstonejs/tools'
 import type { IStackViewport } from '@cornerstonejs/core/dist/types/types'
 import { registerWebImageLoader } from '@/utils/webImageLoader'
 import { renderingEngineId, webImageViewportId, toolGroupId } from '@/config/cornerstoneConfig'
@@ -17,7 +18,9 @@ import { hardcodedMetaDataProvider } from '@/utils/hardcodedMetaDataProvider'
 import { useEventListener } from '@/hooks/event'
 import CustomButton from './CustomButton.vue'
 
-const { imageLoader, metaData } = cornerstone
+const { imageLoader, metaData, Enums } = cornerstone
+const { Enums: ToolEnums } = cornerstoneTools
+const count = ref(0)
 const el = ref()
 const viewport = ref<IStackViewport>()
 
@@ -27,8 +30,12 @@ watchEffect(() => {
   }
 })
 
-useEventListener(window, 'mouseup', () => {
+useEventListener(el, ToolEnums.Events.MOUSE_UP, () => {
   checkZoom(viewport.value)
+})
+
+useEventListener(el, Enums.Events.IMAGE_RENDERED, () => {
+  count.value++
 })
 
 onMounted(() => {
@@ -46,6 +53,7 @@ onUnmounted(() => {
 <template>
   <div ref="el" class="viewer" @contextmenu="$event.preventDefault()"></div>
   <p><CustomButton @click="resetCamera(viewport)">Reset Transform</CustomButton></p>
+  <p>Cornerstone rendered {{ count }} time(s)</p>
 </template>
 <style scoped>
 p {
