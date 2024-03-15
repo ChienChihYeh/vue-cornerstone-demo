@@ -11,13 +11,10 @@ import {
   enableElement,
   disableElement,
   initViewportRender,
-  checkZoom,
-  resetCamera
+  checkZoom
 } from '@/utils/viewportHelpers'
 import { hardcodedMetaDataProvider } from '@/utils/hardcodedMetaDataProvider'
 import { useEventListener } from '@/hooks/event'
-import CustomButton from './CustomButton.vue'
-import ViewerButtonGroup from './ViewerButtonGroup.vue'
 
 const { imageLoader, metaData, Enums } = cornerstone
 const { Enums: ToolEnums } = cornerstoneTools
@@ -54,12 +51,6 @@ onUnmounted(() => {
 <template>
   <div ref="el" class="viewer" @contextmenu="$event.preventDefault()"></div>
   <p>Cornerstone rendered {{ count }} time(s)</p>
-  <ViewerButtonGroup
-    :renderingEngineId="renderingEngineId"
-    :viewportId="webImageViewportId"
-    :toolGroupId="toolGroupId"
-  />
-  <p>(See console logs for button actions)</p>
 </template>
 <style scoped>
 div {

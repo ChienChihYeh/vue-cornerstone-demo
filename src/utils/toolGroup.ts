@@ -1,6 +1,8 @@
+import { toolGroupId } from '@/config/cornerstoneConfig'
 import {
   WindowLevelTool,
   ZoomTool,
+  PanTool,
   ToolGroupManager,
   Enums as csToolsEnums
 } from '@cornerstonejs/tools'
@@ -10,6 +12,7 @@ export function initializeToolGroup(toolGroupId: string) {
   if (toolGroup) {
     toolGroup.addTool(ZoomTool.toolName)
     toolGroup.addTool(WindowLevelTool.toolName)
+    toolGroup.addTool(PanTool.toolName)
 
     toolGroup.setToolActive(WindowLevelTool.toolName, {
       bindings: [
@@ -35,4 +38,16 @@ export function addViewportToToolGroup(viewportId: string, toolGroupId: string) 
 
 export function getToolGroup(toolGroupId: string) {
   return ToolGroupManager.getToolGroup(toolGroupId)
+}
+
+export function toggleTool(currentTool: string, newTool: string) {
+  const toolGroup = getToolGroup(toolGroupId)
+  toolGroup?.setToolDisabled(currentTool)
+  toolGroup?.setToolActive(newTool, {
+    bindings: [
+      {
+        mouseButton: csToolsEnums.MouseBindings.Primary // Left Click
+      }
+    ]
+  })
 }

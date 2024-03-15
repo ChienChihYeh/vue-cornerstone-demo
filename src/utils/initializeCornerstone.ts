@@ -12,9 +12,9 @@ export async function initializeCornerstone() {
   cornerstoneDICOMImageLoader.external.dicomParser = dicomParser
   new cornerstone.RenderingEngine(renderingEngineId)
 
-  const { StackScrollMouseWheelTool, WindowLevelTool, ZoomTool } = cornerstoneTools
+  const { WindowLevelTool, ZoomTool, PanTool } = cornerstoneTools
   cornerstoneTools.addTool(WindowLevelTool)
   cornerstoneTools.addTool(ZoomTool)
-  cornerstoneTools.addTool(StackScrollMouseWheelTool)
+  cornerstoneTools.addTool(PanTool)
   initializeToolGroup(toolGroupId)
 }

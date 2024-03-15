@@ -5,7 +5,7 @@ import {
   getEnabledElement,
   resetCamera
 } from '@/utils/viewportHelpers'
-import { getToolGroup } from '@/utils/toolGroup'
+import { getToolGroup, toggleTool } from '@/utils/toolGroup'
 
 type Id = string | undefined
 
@@ -40,11 +40,17 @@ export function getViewerButtonHandler(renderingEngineId: Id, viewportId: Id, to
     console.log(getEnabledElement(renderingEngineId, viewportId))
   }
 
+  function handdleToggleTool(currentTool: string, newTool: string) {
+    toggleTool(currentTool, newTool)
+    console.log('Toggle to ' + newTool + ' tool')
+  }
+
   return {
     handleResetCamera,
     handleGetRenderingEngine,
     handdleGetViewport,
     handleGetToopGroup,
-    handleGetEnabledElement
+    handleGetEnabledElement,
+    handdleToggleTool
   }
 }

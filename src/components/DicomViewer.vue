@@ -16,7 +16,6 @@ import { renderingEngineId, dicomViewportId, toolGroupId } from '@/config/corner
 import { addViewportToToolGroup } from '@/utils/toolGroup'
 import { useEventListener } from '@/hooks/event'
 import { useSlice } from '@/hooks/slice'
-import ViewerButtonGroup from './ViewerButtonGroup.vue'
 
 const { Enums } = cornerstone
 const { Enums: ToolEnums } = cornerstoneTools
@@ -67,12 +66,6 @@ onUnmounted(() => {
   ></div>
   <p>Slice {{ slice + 1 }}: {{ dicomImageIds[slice] }}</p>
   <p>Cornerstone rendered {{ count }} time(s)</p>
-  <ViewerButtonGroup
-    :renderingEngineId="renderingEngineId"
-    :viewportId="dicomViewportId"
-    :toolGroupId="toolGroupId"
-  />
-  <p>(See console logs for metadata and button actions)</p>
 </template>
 <style scoped>
 div {
