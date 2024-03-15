@@ -6,7 +6,7 @@ import { renderingEngineId, dicomViewportId, toolGroupId } from '@/config/corner
 </script>
 <template>
   <h2>Dicom Image Viewer</h2>
-  <p>Left mouse: Widow level | Right mouse: Zoom | Scroll: Change slice</p>
+  <p>Left mouse: Widow level/Pan | Right mouse: Zoom | Scroll: Change slice</p>
   <DicomViewer />
   <ViewerButtonGroup
     :renderingEngineId="renderingEngineId"
