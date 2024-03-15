@@ -9,40 +9,49 @@ import { getToolGroup, toggleTool } from '@/utils/toolGroup'
 
 type Id = string | undefined
 
-export function getViewerButtonHandler(renderingEngineId: Id, viewportId: Id, toolGroupId?: Id) {
+function isAllIdsValid(...args: Id[]) {
+  return args.every((arg) => typeof arg === 'string')
+}
+
+export function getViewerButtonHandler(renderingEngineId: Id, viewportId: Id, toolGroupId: Id) {
   function handleResetCamera() {
-    if (!renderingEngineId || !viewportId) return
-    resetCamera(getViewport(renderingEngineId, viewportId) as IStackViewport)
+    const args = [renderingEngineId, viewportId]
+    if (!isAllIdsValid(...args)) return
+    resetCamera(getViewport(...(args as [string, string])) as IStackViewport)
     console.log('reset camera')
   }
 
   function handleGetRenderingEngine() {
-    if (!renderingEngineId) return
+    const args = [renderingEngineId]
+    if (!isAllIdsValid(...args)) return
     //do whatever you like with the rendering engine
-    console.log(getRenderingEngine(renderingEngineId))
+    console.log(getRenderingEngine(...(args as [string])))
   }
 
   function handdleGetViewport() {
-    if (!renderingEngineId || !viewportId) return
+    const args = [renderingEngineId, viewportId]
+    if (!isAllIdsValid(...args)) return
     //do whatever you like with the viewport
-    console.log(getViewport(renderingEngineId, viewportId))
+    console.log(getViewport(...(args as [string, string])))
   }
 
   function handleGetToopGroup() {
-    if (!toolGroupId) return
+    const args = [toolGroupId]
+    if (!isAllIdsValid(...args)) return
     //do whatever you like with the tool group
-    console.log(getToolGroup(toolGroupId))
+    console.log(getToolGroup(...(args as [string])))
   }
 
   function handleGetEnabledElement() {
-    if (!renderingEngineId || !viewportId) return
+    const args = [renderingEngineId, viewportId]
+    if (!isAllIdsValid(...args)) return
     //do whatever you like with the enabled element
-    console.log(getEnabledElement(renderingEngineId, viewportId))
+    console.log(getEnabledElement(...(args as [string, string])))
   }
 
   function handdleToggleTool(currentTool: string, newTool: string) {
     toggleTool(currentTool, newTool)
-    console.log('Toggle to ' + newTool + ' tool')
+    console.log('Activate ' + newTool + ' tool')
   }
 
   return {
