@@ -6,7 +6,7 @@ import ViewerButtonGroup from '@/components/ViewerButtonGroup.vue'
 </script>
 <template>
   <h2>Web Image Viewer</h2>
-  <p>Left mouse: Widow level | Right mouse: Zoom</p>
+  <p>Left mouse: Widow level/Pan | Right mouse: Zoom</p>
   <WebViewer />
   <ViewerButtonGroup
     :renderingEngineId="renderingEngineId"
