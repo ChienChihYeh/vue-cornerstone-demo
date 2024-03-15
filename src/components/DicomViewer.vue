@@ -9,7 +9,8 @@ import {
   initViewportRender,
   checkZoom,
   handleViewerWheel,
-  getImageData
+  getImageData,
+  getDicomTags
 } from '@/utils/viewportHelpers'
 import { dicomImageIds } from '@/utils/dicomImagePath'
 import { renderingEngineId, dicomViewportId, toolGroupId } from '@/config/cornerstoneConfig'
@@ -41,6 +42,7 @@ watchEffect(() => {
       if (viewport.value) console.log(getImageData(viewport.value))
       // Parse DICOM image metadata
     })
+    getDicomTags(dicomImageIds)
   }
 })
 

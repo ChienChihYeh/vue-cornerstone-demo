@@ -1,6 +1,7 @@
 import type { Ref } from 'vue'
-import type { IStackViewport } from '@cornerstonejs/core/dist/types/types'
+import type { IStackViewport, IImage } from '@cornerstonejs/core/dist/types/types'
 import * as cornerstone from '@cornerstonejs/core'
+import { displayDicomTags } from './shodDicomTags'
 
 const { ViewportType } = cornerstone.Enums
 
@@ -55,6 +56,21 @@ export function getImageData(viewport: IStackViewport) {
 export function resetCamera(viewport: IStackViewport | undefined) {
   viewport?.resetCamera()
   viewport?.render()
+}
+
+export async function getDicomTags(imageIds: string[]) {
+  // since IImage type provided by Cornerstone3D does not cover all the type definitions, we have to make do with this for now
+  const image: IImage extends Record<string, any> ? IImage : Record<string, any> =
+    await cornerstone.imageLoader.loadAndCacheImage(imageIds[0])
+
+  // get the whole image object
+  // console.log(image)
+
+  // get the data elements and attributes
+  // console.log(image.data)
+
+  // extract the elements we need
+  displayDicomTags(image.data)
 }
 
 export function checkZoom(viewport: IStackViewport | undefined, minScale?: number) {

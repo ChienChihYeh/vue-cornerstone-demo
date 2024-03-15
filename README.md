@@ -10,7 +10,7 @@ This repository contains live demo showcasing the integration of Cornerstone3D i
 - Configuring the new DICOM image loader for Cornerstone3D
 - Customizing and registering web image loader for Cornerstone3D
 - Displaying DICOM image stack
-- Parsing metadata from DICOM images
+- Parsing DICOM tags and metadata from DICOM images
 - Displaying web images
 - Providing metadata for web images (necessary for web image display)
 - Basic initialization, toggle, and usage of Cornerstone3D tools

@@ -5,7 +5,7 @@ import ViewerButtonGroup from '@/components/ViewerButtonGroup.vue'
 import { renderingEngineId, dicomViewportId, toolGroupId } from '@/config/cornerstoneConfig'
 </script>
 <template>
-  <h2>Dicom Image Viewer</h2>
+  <h2>DICOM Image Viewer</h2>
   <p>Left mouse: Widow level/Pan | Right mouse: Zoom | Scroll: Change slice</p>
   <DicomViewer />
   <ViewerButtonGroup
@@ -13,7 +13,7 @@ import { renderingEngineId, dicomViewportId, toolGroupId } from '@/config/corner
     :viewportId="dicomViewportId"
     :toolGroupId="toolGroupId"
   />
-  <p>(See console logs for metadata and button actions)</p>
+  <p>(See console logs for DICOM tags, metadata and button actions)</p>
   <div>
     <RouterLink to="/">Back</RouterLink>
   </div>
