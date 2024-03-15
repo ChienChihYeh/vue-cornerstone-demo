@@ -7,7 +7,6 @@ import {
   enableElement,
   disableElement,
   initViewportRender,
-  resetCamera,
   checkZoom,
   handleViewerWheel,
   getImageData
@@ -17,7 +16,7 @@ import { renderingEngineId, dicomViewportId, toolGroupId } from '@/config/corner
 import { addViewportToToolGroup } from '@/utils/toolGroup'
 import { useEventListener } from '@/hooks/event'
 import { useSlice } from '@/hooks/slice'
-import CustomButton from './CustomButton.vue'
+import ViewerButtonGroup from './ViewerButtonGroup.vue'
 
 const { Enums } = cornerstone
 const { Enums: ToolEnums } = cornerstoneTools
@@ -66,9 +65,14 @@ onUnmounted(() => {
     @contextmenu="$event.preventDefault()"
     @wheel="(e) => handleViewerWheel(e, viewport, lastIndex, setSlice)"
   ></div>
-  <p><CustomButton @click="resetCamera(viewport)">Reset Transform</CustomButton></p>
   <p>Slice {{ slice + 1 }}: {{ dicomImageIds[slice] }}</p>
   <p>Cornerstone rendered {{ count }} time(s)</p>
+  <ViewerButtonGroup
+    :renderingEngineId="renderingEngineId"
+    :viewportId="dicomViewportId"
+    :toolGroupId="toolGroupId"
+  />
+  <p>(See console logs for metadata and button actions)</p>
 </template>
 <style scoped>
 div {

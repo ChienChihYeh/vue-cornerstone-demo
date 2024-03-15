@@ -32,3 +32,7 @@ export function addViewportToToolGroup(viewportId: string, toolGroupId: string) 
   const toolGroup = ToolGroupManager.getToolGroup(toolGroupId)
   toolGroup?.addViewport(viewportId)
 }
+
+export function getToolGroup(toolGroupId: string) {
+  return ToolGroupManager.getToolGroup(toolGroupId)
+}

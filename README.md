@@ -15,6 +15,7 @@ This repository contains live demo showcasing the integration of Cornerstone3D i
 - Providing metadata for web images (necessary for web image display)
 - Basic initialization and usage of Cornerstone3D tools
 - Listening for Cornerstone3D and Cornerstone3D tools events
+- Interacting with rendering engines, viewports, tool groups, and elements within the context of Cornerstone3D
 - Abstraction of tools, event handlers, and configuration to hooks and helper functions
 - Using Cornerstone3D with Typescript and providing necessary type declarations
 - Creating type declaration file for DICOM image loader

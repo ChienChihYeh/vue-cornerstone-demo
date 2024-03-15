@@ -17,6 +17,7 @@ import {
 import { hardcodedMetaDataProvider } from '@/utils/hardcodedMetaDataProvider'
 import { useEventListener } from '@/hooks/event'
 import CustomButton from './CustomButton.vue'
+import ViewerButtonGroup from './ViewerButtonGroup.vue'
 
 const { imageLoader, metaData, Enums } = cornerstone
 const { Enums: ToolEnums } = cornerstoneTools
@@ -52,10 +53,18 @@ onUnmounted(() => {
 </script>
 <template>
   <div ref="el" class="viewer" @contextmenu="$event.preventDefault()"></div>
-  <p><CustomButton @click="resetCamera(viewport)">Reset Transform</CustomButton></p>
   <p>Cornerstone rendered {{ count }} time(s)</p>
+  <ViewerButtonGroup
+    :renderingEngineId="renderingEngineId"
+    :viewportId="webImageViewportId"
+    :toolGroupId="toolGroupId"
+  />
+  <p>(See console logs for button actions)</p>
 </template>
 <style scoped>
+div {
+  margin: auto;
+}
 p {
   text-align: center;
 }

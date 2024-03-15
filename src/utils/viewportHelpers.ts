@@ -82,3 +82,15 @@ export function handleViewerWheel(
     setSlice(index - 1)
   }
 }
+
+export function getRenderingEngine(renderingEngineId: string) {
+  return cornerstone.getRenderingEngine(renderingEngineId)
+}
+
+export function getViewport(renderingEngineId: string, viewportId: string) {
+  return getRenderingEngine(renderingEngineId)?.getViewport(viewportId)
+}
+
+export function getEnabledElement(renderingEngineId: string, viewportId: string) {
+  return cornerstone.getEnabledElement(getViewport(renderingEngineId, viewportId)?.element)
+}
