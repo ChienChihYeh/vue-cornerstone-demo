@@ -1,4 +1,4 @@
-import { toolGroupId } from '@/config/cornerstoneConfig'
+import { toolGroupId } from '@/configs/cornerstoneConfig'
 import {
   WindowLevelTool,
   ZoomTool,

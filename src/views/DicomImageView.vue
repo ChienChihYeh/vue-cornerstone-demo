@@ -2,7 +2,7 @@
 import { RouterLink } from 'vue-router'
 import DicomViewer from '@/components/DicomViewer.vue'
 import ViewerButtonGroup from '@/components/ViewerButtonGroup.vue'
-import { renderingEngineId, dicomViewportId, toolGroupId } from '@/config/cornerstoneConfig'
+import { renderingEngineId, dicomViewportId, toolGroupId } from '@/configs/cornerstoneConfig'
 </script>
 <template>
   <h2>DICOM Image Viewer</h2>
@@ -25,3 +25,4 @@ p {
   text-align: center;
 }
 </style>
+@/configs/cornerstoneConfig

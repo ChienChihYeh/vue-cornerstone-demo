@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { RouterLink } from 'vue-router'
 import WebViewer from '@/components/WebViewer.vue'
-import { renderingEngineId, webImageViewportId, toolGroupId } from '@/config/cornerstoneConfig'
+import { renderingEngineId, webImageViewportId, toolGroupId } from '@/configs/cornerstoneConfig'
 import ViewerButtonGroup from '@/components/ViewerButtonGroup.vue'
 </script>
 <template>
@@ -25,3 +25,4 @@ p {
   text-align: center;
 }
 </style>
+@/configs/cornerstoneConfig

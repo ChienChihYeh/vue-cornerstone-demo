@@ -1,4 +1,4 @@
-import { dicomTagSet } from '@/config/dicomTagSetConfig'
+import { dicomTagSet } from '@/configs/dicomTagSetConfig'
 export function displayDicomTags(data: Record<string, any>) {
   // https://www.dicomlibrary.com/dicom/dicom-tags/
 

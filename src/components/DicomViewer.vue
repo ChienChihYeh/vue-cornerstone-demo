@@ -13,7 +13,7 @@ import {
   getDicomTags
 } from '@/utils/viewportHelpers'
 import { dicomImageIds } from '@/utils/dicomImagePath'
-import { renderingEngineId, dicomViewportId, toolGroupId } from '@/config/cornerstoneConfig'
+import { renderingEngineId, dicomViewportId, toolGroupId } from '@/configs/cornerstoneConfig'
 import { addViewportToToolGroup } from '@/utils/toolGroup'
 import { useEventListener } from '@/hooks/event'
 import { useSlice } from '@/hooks/slice'
@@ -81,3 +81,4 @@ button {
   margin-top: 4px;
 }
 </style>
+@/configs/cornerstoneConfig

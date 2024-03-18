@@ -10,7 +10,10 @@ import CornerstoneIcon from '@/components/icons/CornerstoneIcon.vue'
       <CornerstoneIcon class="cornerstone-logo" />
     </div>
     <h1>Vue-Cornerstone3D Integration Demo</h1>
-    <p>The demo is kept simple for clarification. Please refer to the GitHub repository for additional information.</p>
+    <p>
+      The demo is kept simple for clarification. Please refer to the GitHub repository for
+      additional information.
+    </p>
     <p>Note: This demo is currently optimized for desktop.</p>
     <div>
       <RouterLink to="/dicom-image">DICOM Image</RouterLink> |
@@ -35,7 +38,8 @@ import CornerstoneIcon from '@/components/icons/CornerstoneIcon.vue'
   height: 150px;
 }
 
-div,h1,
+div,
+h1,
 p {
   text-align: center;
 }

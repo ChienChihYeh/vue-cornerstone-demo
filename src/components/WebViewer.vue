@@ -4,7 +4,7 @@ import * as cornerstone from '@cornerstonejs/core'
 import * as cornerstoneTools from '@cornerstonejs/tools'
 import type { IStackViewport } from '@cornerstonejs/core/dist/types/types'
 import { registerWebImageLoader } from '@/utils/webImageLoader'
-import { renderingEngineId, webImageViewportId, toolGroupId } from '@/config/cornerstoneConfig'
+import { renderingEngineId, webImageViewportId, toolGroupId } from '@/configs/cornerstoneConfig'
 import { addViewportToToolGroup } from '@/utils/toolGroup'
 import { webImageIds } from '@/utils/webImagePath'
 import {
@@ -63,3 +63,4 @@ button {
   margin: 4px 0;
 }
 </style>
+@/configs/cornerstoneConfig
